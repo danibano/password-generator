@@ -61,8 +61,28 @@ function askQuestions (){
 
 //homework starts here
 function generatePassword(){
+  var finalPassword = "";
   askQuestions();
 
+  for( var i = 0; i < numberOfCharacters; i++){
+    if (okToUseSpecialChars) {
+      finalPassword += specialChars[Math.floor(Math.random() * specialChars.length)];
+    }
+
+    if (okToUseLowLets) {
+      finalPassword += lowerLetters[Math.floor(Math.random() * lowerLetters.length)];
+    }
+
+    if (okToUseUpLets) {
+      finalPassword += upperLetters[Math.floor(Math.random() * upperLetters.length)];
+    }
+
+    if (okToUseNumbs) {
+      finalPassword += numbers[Math.floor(Math.random() * numbers.length)];
+    }
+  }
+
+  return finalPassword;
 }
 
 
