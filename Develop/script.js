@@ -19,7 +19,7 @@ function askQuestions (){
   numberOfCharacters = parseInt(response);
 
   if (numberOfCharacters < 8 || numberOfCharacters > 128) {
-    alert("Must be between 8 - 128 characters.")
+    alert("Must be between 8 and 128 characters.")
     askQuestions()
   } else {
     okToUseSpecialChars = confirm("Do you want to use special characters?");
@@ -30,32 +30,44 @@ function askQuestions (){
   
     okToUseNumbs = confirm("Do you want to use numbers?");
   }
+
+  if (okToUseSpecialChars == false && okToUseLowLets == false && okToUseUpLets == false && okToUseNumbs == false) {
+    alert("Must choose at least one criteria.")
+    askQuestions()
+  }
+
 }
 
 
 function generatePassword(){
+  var temppass = [];
   var finalPassword = "";
   askQuestions();
 
-  for( var i = 0; i < numberOfCharacters; i++){
     if (okToUseSpecialChars) {
-      finalPassword += specialChars[Math.floor(Math.random() * specialChars.length)];
+      temppass.push(...specialChars);
     }
 
     if (okToUseLowLets) {
-      finalPassword += lowerLetters[Math.floor(Math.random() * lowerLetters.length)];
+      temppass.push(...lowerLetters);
     }
 
     if (okToUseUpLets) {
-      finalPassword += upperLetters[Math.floor(Math.random() * upperLetters.length)];
+      temppass.push(...upperLetters);
     }
 
     if (okToUseNumbs) {
-      finalPassword += numbers[Math.floor(Math.random() * numbers.length)];
+      temppass.push(...numbers);
     }
-  }
 
-  return finalPassword.slice(0,numberOfCharacters);
+
+  for( var i = 0; i < numberOfCharacters; i++) {
+    finalPassword = finalPassword + temppass[Math.floor(Math.random() * temppass.length)]
+
+  }
+  
+
+  return finalPassword;
 }
 
 
