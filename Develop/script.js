@@ -15,12 +15,15 @@ var numbers = ("0123456789").split("");
 
 function askQuestions (){
   
-  var response = prompt ("How many characters");
+  var response = prompt ("How many characters?").trim();
   numberOfCharacters = parseInt(response);
 
-  if (numberOfCharacters < 8 || numberOfCharacters > 128 ) {
+  if (numberOfCharacters < 8 || numberOfCharacters > 128 || response.length === 0) {
     alert("Must be between 8 and 128 characters.")
     askQuestions()
+  } else if ( isNaN(numberOfCharacters)) {
+    alert("Please type a number not the word. Example: 10 not 'ten'")
+    askQuestions ()
   } else {
     okToUseSpecialChars = confirm("Do you want to use special characters?");
 
