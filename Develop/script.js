@@ -12,7 +12,7 @@ var lowerLetters = ("abcdefghijklmnopqrstuvwxyz").split("");
 var upperLetters = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ").split("");
 var numbers = ("0123456789").split("");
 
-$settings['block_interest_cohort'] = FALSE;
+//$settings['block_interest_cohort'] = FALSE;
 
 function askQuestions (){
   
