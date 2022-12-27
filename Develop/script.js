@@ -12,14 +12,13 @@ var lowerLetters = ("abcdefghijklmnopqrstuvwxyz").split("");
 var upperLetters = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ").split("");
 var numbers = ("0123456789").split("");
 
-//$settings['block_interest_cohort'] = FALSE;
 
 function askQuestions (){
   
   var response = prompt ("How many characters");
   numberOfCharacters = parseInt(response);
 
-  if (numberOfCharacters < 8 || numberOfCharacters > 128) {
+  if (numberOfCharacters < 8 || numberOfCharacters > 128 ) {
     alert("Must be between 8 and 128 characters.")
     askQuestions()
   } else {
